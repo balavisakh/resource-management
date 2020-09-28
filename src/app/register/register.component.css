@@ -1,0 +1,17 @@
+.example-radio-group {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+  .gender-label{
+      margin-top: 5px;
+      margin-right: 2px;
+  }
+
+  a{
+      cursor: pointer;
+  }
+  
