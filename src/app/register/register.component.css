@@ -14,4 +14,72 @@
   a{
       cursor: pointer;
   }
+
+  .register-parent-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+  }
+
+  .myform-wrapper {
+    margin: 50px;
+    width: 350px;
+
+  }
+  .file-upload-filed {
+    width: 100%;
+}
+
+    .mat-toolbar-single-row {
+        height: auto !important;
+        background: transparent;
+
+    }
+    .file-upload-button {
+      width: 30%;
+  }
+
+#fileUpload {
+    position: absolute;
+    z-index: 9;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    cursor: pointer;
+}
+
+.add-skills {
+  margin-top: 13px;
+}
+
+.register-logo {
+  text-align: center;
+}
+.focaloid-logo {
+  width: 130px;
+}
+
+.register-mat-button {
+  background-color: #b20f0f;
+  color: #fff;
+}
+
+@media (max-width: 556px) {
+  .register-parent-div {
+    width: 100% !important;
+    margin-left: 2%;
+  }
+}
+
+@media (max-width: 1005px) {
+  .register-parent-div {
+    width: 100% !important;
+    margin-left: 2%;
+  }
+}
+
   

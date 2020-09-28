@@ -1,15 +1,18 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {MatChipInputEvent} from '@angular/material/chips';
-import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
-import {Router} from '@angular/router';
+import { FormControl, Validators } from '@angular/forms';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatChipInputEvent } from '@angular/material/chips';
+import {
+  MatAutocompleteSelectedEvent,
+  MatAutocomplete,
+} from '@angular/material/autocomplete';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -25,14 +28,18 @@ export class RegisterComponent implements OnInit {
 
   @ViewChild('skillInput') skillInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
-  constructor(private router: Router) { 
+  @ViewChild('UploadFileInput') uploadFileInput: ElementRef;
+  filename = 'Select File';
+  constructor(private router: Router) {
     this.filteredskills = this.skillCtrl.valueChanges.pipe(
-      startWith(null),
-      map((skill: string | null) => skill ? this._filter(skill) : this.allskills.slice()));
+      startWith(null as string),
+      map((skill: string | null) =>
+        skill ? this._filter(skill) : this.allskills.slice()
+      )
+    );
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   getErrorMessage(): string {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
@@ -75,10 +82,39 @@ export class RegisterComponent implements OnInit {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.allskills.filter(skill => skill.toLowerCase().indexOf(filterValue) === 0);
+    return this.allskills.filter(
+      (skill) => skill.toLowerCase().indexOf(filterValue) === 0
+    );
   }
 
   login(): void {
     this.router.navigate(['login']);
+  }
+
+  //fileupload
+  fileChangeEvent(fileInput: any): void {
+    if (fileInput.target.files && fileInput.target.files[0]) {
+      this.filename = '';
+      Array.from(fileInput.target.files).forEach((file: File) => {
+        console.log(file);
+        this.filename += file.name + ',';
+      });
+
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        const image = new Image();
+        image.src = e.target.result;
+        image.onload = (rs) => {
+          // Return Base64 Data URL
+          const imgBase64Path = e.target.result;
+        };
+      };
+      reader.readAsDataURL(fileInput.target.files[0]);
+
+      // Reset File Input to Selct Same file again
+      this.uploadFileInput.nativeElement.value = '';
+    } else {
+      this.filename = 'Select File';
+    }
   }
 }

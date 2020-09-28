@@ -2,3 +2,31 @@
   a {
       cursor: pointer;
   }
+
+  .login-parent-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .login-logo {
+    text-align: center;
+  }
+  .focaloid-logo {
+    width: 130px;
+  }
+
+  .login-mat-button {
+    background-color: #b20f0f;
+    color: #fff;
+  }
+
+  @media (max-width: 1199.98px) {
+    .login-parent-div {
+      width: 80% !important;
+    }
+  }
+
+  
+  

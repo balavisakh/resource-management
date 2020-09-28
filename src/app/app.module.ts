@@ -20,11 +20,15 @@ import {MatChipsModule} from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { TopMenuBarComponent } from './top-menu-bar/top-menu-bar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    TopMenuBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +48,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatAutocompleteModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatToolbarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
