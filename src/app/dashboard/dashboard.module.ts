@@ -25,7 +25,7 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
   ]
 })
 export class DashboardModule { }
