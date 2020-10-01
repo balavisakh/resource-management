@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <mat-card>
+                <div class="resource-allocation-title">
+                    <h1 class="text-center">Resource allocation</h1>
+                </div>
+                <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Project</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let project of projects" [value]="project.value">
+                        {{project.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field class="example-chip-list w-100">
+                    <mat-chip-list #chipList aria-label="Lead selection">
+                      <mat-chip
+                        *ngFor="let lead of leads"
+                        [selectable]="selectable"
+                        [removable]="removable"
+                        (removed)="remove(lead)">
+                        {{lead}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                      </mat-chip>
+                      <input
+                        placeholder="Select lead Name"
+                        #leadInput
+                        [formControl]="leadCtrl"
+                        [matAutocomplete]="leadauto"
+                        [matChipInputFor]="chipList"
+                        [matChipInputSeparatorKeyCodes]="leadseparatorKeysCodes"
+                        (matChipInputTokenEnd)="addLead($event)">
+                    </mat-chip-list>
+                    <mat-autocomplete #leadauto="matAutocomplete" (optionSelected)="leadselected($event)">
+                      <mat-option *ngFor="let lead of filteredLeads | async" [value]="lead">
+                        {{lead}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                  <!-- team members  -->
+                  <mat-form-field class="example-chip-list w-100">
+                    <mat-chip-list #chipList aria-label="Team selection">
+                      <mat-chip
+                        *ngFor="let team of teams"
+                        [selectable]="selectable"
+                        [removable]="removable"
+                        (removed)="remove(team)">
+                        {{team}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                      </mat-chip>
+                      <input
+                        placeholder="select lead and team names"
+                        #teamInput
+                        [formControl]="teamCtrl"
+                        [matAutocomplete]="teamauto"
+                        [matChipInputFor]="chipList"
+                        [matChipInputSeparatorKeyCodes]="teamseparatorKeysCodes"
+                        (matChipInputTokenEnd)="addTeam($event)">
+                    </mat-chip-list>
+                    <mat-autocomplete #teamauto="matAutocomplete" (optionSelected)="teamselected($event)">
+                      <mat-option *ngFor="let team of filteredTeams | async" [value]="team">
+                        {{team}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                  <!-- duration -->
+                  <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Project duration</mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                      <input matStartDate placeholder="Start date">
+                      <input matEndDate placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                  </mat-form-field>
+                  <!-- submit button -->
+                  <button mat-raised-button color="warn">Submit</button>
+            </mat-card>
+        </div>
+    </div>
+</div>
