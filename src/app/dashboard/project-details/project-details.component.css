@@ -1,0 +1,9 @@
+.project-details {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-div {
+    display: flex;
+    justify-content: space-between;
+}

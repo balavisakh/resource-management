@@ -17,11 +17,11 @@
                     <mat-chip-list #chipList aria-label="Lead selection">
                       <mat-chip
                         *ngFor="let lead of leads"
-                        [selectable]="selectable"
-                        [removable]="removable"
-                        (removed)="remove(lead)">
+                        [selectable]="selectableLead"
+                        [removable]="removableLead"
+                        (removed)="removeLead(lead)">
                         {{lead}}
-                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        <mat-icon matChipRemove *ngIf="removableLead">cancel</mat-icon>
                       </mat-chip>
                       <input
                         placeholder="Select lead Name"
@@ -43,14 +43,14 @@
                     <mat-chip-list #chipList aria-label="Team selection">
                       <mat-chip
                         *ngFor="let team of teams"
-                        [selectable]="selectable"
-                        [removable]="removable"
-                        (removed)="remove(team)">
+                        [selectable]="selectableTeam"
+                        [removable]="removableTeam"
+                        (removed)="removeTeam(team)">
                         {{team}}
-                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        <mat-icon matChipRemove *ngIf="removableTeam">cancel</mat-icon>
                       </mat-chip>
                       <input
-                        placeholder="select lead and team names"
+                        placeholder="select lead names"
                         #teamInput
                         [formControl]="teamCtrl"
                         [matAutocomplete]="teamauto"

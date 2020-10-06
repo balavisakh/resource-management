@@ -91,7 +91,7 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
-  //fileupload
+  // fileupload
   fileChangeEvent(fileInput: any): void {
     if (fileInput.target.files && fileInput.target.files[0]) {
       this.filename = '';

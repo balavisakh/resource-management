@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
+import { InterviewManagementComponent } from './interview-management/interview-management.component';
+import { InterviewComponent } from './interview/interview.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { TrainingComponent } from './training/training.component';
 
@@ -11,7 +13,9 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: 'training', component: TrainingComponent },
-      {path: 'project-details', component: ProjectDetailsComponent}
+      { path: 'project-details', component: ProjectDetailsComponent },
+      { path: 'interview', component: InterviewComponent },
+      {path: 'interview-management', component: InterviewManagementComponent}
     ],
   },
 ];

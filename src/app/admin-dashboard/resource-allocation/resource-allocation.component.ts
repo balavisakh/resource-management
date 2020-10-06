@@ -26,8 +26,10 @@ export class ResourceAllocationComponent implements OnInit {
     { value: 'project3', viewValue: 'Project 3' },
   ];
   visible = true;
-  selectable = true;
-  removable = true;
+  selectableLead = true;
+  selectableTeam = true;
+  removableLead = true;
+  removableTeam = true;
   leadseparatorKeysCodes: number[] = [ENTER, COMMA];
   teamseparatorKeysCodes: number[] = [ENTER, COMMA];
   leadCtrl = new FormControl();
@@ -40,7 +42,8 @@ export class ResourceAllocationComponent implements OnInit {
   allTeams: string[] = ['Team 1', 'Team 2', 'Team 3', 'Team 4', 'Team 5'];
   @ViewChild('leadInput') leadInput: ElementRef<HTMLInputElement>;
   @ViewChild('teamInput') teamInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+  @ViewChild('leadauto') matLeadAutocomplete: MatAutocomplete;
+  @ViewChild('teamauto') matTeamAutocomplete: MatAutocomplete;
   constructor() {
     this.filteredLeads = this.leadCtrl.valueChanges.pipe(
       startWith(null as string),
@@ -91,7 +94,7 @@ export class ResourceAllocationComponent implements OnInit {
 
     this.teamCtrl.setValue(null);
   }
-  removeLead(lead: string, team: string): void {
+  removeLead(lead: string): void {
     const leadindex = this.leads.indexOf(lead);
 
     if (leadindex >= 0) {
@@ -99,7 +102,7 @@ export class ResourceAllocationComponent implements OnInit {
     }
   }
   // team
-  removeTeam(lead: string, team: string): void {
+  removeTeam(team: string): void {
     const teamindex = this.teams.indexOf(team);
     if (teamindex >= 0) {
       this.teams.splice(teamindex, 1);
