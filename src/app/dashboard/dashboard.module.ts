@@ -23,6 +23,11 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { InterviewManagementComponent } from './interview-management/interview-management.component';
 import { MatSelectModule } from '@angular/material/select';
+import { AddProjectComponent } from './add-project/add-project.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ResourceAllocationComponent } from './resource-allocation/resource-allocation.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -32,6 +37,8 @@ import { MatSelectModule } from '@angular/material/select';
     ProjectDetailsComponent,
     InterviewComponent,
     InterviewManagementComponent,
+    AddProjectComponent,
+    ResourceAllocationComponent,
   ],
   imports: [
     CommonModule,
@@ -51,6 +58,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatRadioModule,
     MatCardModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatAutocompleteModule,
+    MatChipsModule
   ],
 })
 export class DashboardModule {}

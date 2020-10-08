@@ -1,0 +1,94 @@
+<div class="resource-allocation-div">
+  <mat-card>
+    <div class="project-names">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Projects</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let project of projects" [value]="project.value">
+            {{ project.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="lead-name">
+      <mat-form-field class="example-chip-list" class="w-100">
+        <mat-chip-list #chipListLead aria-label="Lead selection">
+          <mat-chip
+            *ngFor="let lead of leads"
+            [selectable]="selectableLead"
+            [removable]="removableLead"
+            (removed)="removeLead(lead)"
+          >
+            {{ lead }}
+            <mat-icon matChipRemove *ngIf="removableLead">cancel</mat-icon>
+          </mat-chip>
+          <input
+            placeholder="Select lead"
+            #leadInput
+            [formControl]="leadCtrl"
+            [matAutocomplete]="leadauto"
+            [matChipInputFor]="chipListLead"
+            [matChipInputSeparatorKeyCodes]="leadseparatorKeysCodes"
+            (matChipInputTokenEnd)="leadadd($event)"
+          />
+        </mat-chip-list>
+        <mat-autocomplete
+          #leadauto="matAutocomplete"
+          (optionSelected)="selectedLead($event)"
+        >
+          <mat-option *ngFor="let lead of filteredLeads | async" [value]="lead">
+            {{ lead }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="teams">
+      <mat-form-field class="example-chip-list" class="w-100">
+        <mat-chip-list #chipListTeam aria-label="Team selection">
+          <mat-chip
+            *ngFor="let team of teams"
+            [selectable]="selectableTeam"
+            [removable]="removableTeam"
+            (removed)="removeTeam(team)"
+          >
+            {{ team }}
+            <mat-icon matChipRemove *ngIf="removableTeam">cancel</mat-icon>
+          </mat-chip>
+          <input
+            placeholder="Select team members"
+            #teamInput
+            [formControl]="teamCtrl"
+            [matAutocomplete]="autoTeam"
+            [matChipInputFor]="chipListTeam"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodesTeam"
+            (matChipInputTokenEnd)="addTeam($event)"
+          />
+        </mat-chip-list>
+        <mat-autocomplete
+          #autoTeam="matAutocomplete"
+          (optionSelected)="selectedTeam($event)"
+        >
+          <mat-option *ngFor="let team of filteredTeams | async" [value]="team">
+            {{ team }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="duration-date">
+        <!-- duration -->
+        <mat-form-field appearance="fill" class="w-100">
+           <mat-label>Project duration</mat-label>
+           <mat-date-range-input [rangePicker]="picker">
+             <input matStartDate placeholder="Start date">
+             <input matEndDate placeholder="End date">
+           </mat-date-range-input>
+           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+           <mat-date-range-picker #picker></mat-date-range-picker>
+         </mat-form-field>
+   </div>
+   <div class="submit-btn">
+       <!-- submit button -->
+       <button mat-raised-button color="warn">Submit</button>
+   </div>
+  </mat-card>
+</div>

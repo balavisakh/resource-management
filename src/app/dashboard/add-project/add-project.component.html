@@ -1,0 +1,38 @@
+<div class="add-project-div">
+  <mat-card>
+    <div class="project-name">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Project name</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+    <div class="client-name">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Client name</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+    <div class="client-location">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Client location</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+    <div class="duration-date">
+         <!-- duration -->
+         <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Project duration</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate placeholder="Start date">
+              <input matEndDate placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+    </div>
+    <div class="submit-btn">
+        <!-- submit button -->
+        <button mat-raised-button color="warn">Submit</button>
+    </div>
+  </mat-card>
+</div>
