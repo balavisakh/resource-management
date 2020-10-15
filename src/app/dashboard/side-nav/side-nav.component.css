@@ -3,7 +3,7 @@
 }
 
 .sidenav {
-  width: 200px;
+  width: 250px;
 }
 
 .sidenav .mat-toolbar {
@@ -26,4 +26,9 @@
 
 .focaloid-logo-icon {
   width: 55px;
+}
+
+.active {
+  background-color: #f4433630;
+  border-radius: 0px 25px 25px 0px;
 }
