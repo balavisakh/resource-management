@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
@@ -28,6 +27,13 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ResourceAllocationComponent } from './resource-allocation/resource-allocation.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatChipsModule} from '@angular/material/chips';
+import { TrainingTableComponent } from './training-table/training-table.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { InterviewTableComponent } from './interview-table/interview-table.component';
+import { ProjectsTableComponent } from './projects-table/projects-table.component';
+import { ResourceTableComponent } from './resource-table/resource-table.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +45,10 @@ import {MatChipsModule} from '@angular/material/chips';
     InterviewManagementComponent,
     AddProjectComponent,
     ResourceAllocationComponent,
+    TrainingTableComponent,
+    InterviewTableComponent,
+    ProjectsTableComponent,
+    ResourceTableComponent,
   ],
   imports: [
     CommonModule,
@@ -60,7 +70,10 @@ import {MatChipsModule} from '@angular/material/chips';
     MatSelectModule,
     MatDatepickerModule,
     MatAutocompleteModule,
-    MatChipsModule
+    MatChipsModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
 })
 export class DashboardModule {}

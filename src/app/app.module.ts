@@ -26,12 +26,14 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetLinkComponent } from './reset-link/reset-link.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     ResetPasswordComponent,
+    ResetLinkComponent,
   ],
   imports: [
     BrowserModule,

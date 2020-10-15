@@ -1,0 +1,26 @@
+<div class="parent-div w-25">
+  <mat-card class="child-div">
+    <div class="logo">
+      <img
+        class="img-fluid focaloid-logo mb-3"
+        src="../../assets/images/fcl_img.png"
+        alt="focaloid"
+      />
+    </div>
+    <div class="text-field-container">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="example@example.com"
+          [formControl]="email"
+          required
+        />
+        <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="reset-btn">
+      <button class="w-100 reset-mat-button" mat-raised-button>Send reset link</button>
+    </div>
+  </mat-card>
+</div>

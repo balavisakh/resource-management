@@ -22,6 +22,11 @@
     color: #fff;
   }
 
+  .rememberme-forget-pwd-div {
+    display: flex;
+    justify-content: space-between;
+  }
+
   @media (max-width: 1199.98px) {
     .login-parent-div {
       width: 80% !important;

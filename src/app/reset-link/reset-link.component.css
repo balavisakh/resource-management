@@ -1,0 +1,18 @@
+.parent-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .logo {
+    text-align: center;
+  }
+  .focaloid-logo {
+    width: 130px;
+  }
+
+  .reset-mat-button {
+    background-color: #b20f0f;
+    color: #fff;
+  }
